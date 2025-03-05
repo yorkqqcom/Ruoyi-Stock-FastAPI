@@ -18,10 +18,12 @@ Ruoyi-Stock-FastAPI 是基于 RuoYi-Vue-FastAPI v1.6.0 扩展的股票行情管�
 * 前端继承 RuoYi-Vue 的 Vue + Element UI 技术栈
 * 后端采用 FastAPI + SQLAlchemy 架构
 * 整合第三方股票行情API实现实时数据获取
-* 新增股票看板、实时报价、历史K线等金融模块
+* 新增股票历史行情功能模块
 * 特别鸣谢：
-  - 基础框架：<u>[RuoYi-Vue-FastAPI](https://gitee.com/insistence2022/RuoYi-Vue-FastAPI)</u>
-  - 原型项目：<u>[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)</u>
+  - 基础框架：[RuoYi-Vue-FastAPI](https://gitee.com/insistence2022/RuoYi-Vue-FastAPI)
+  - 原型项目：[RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue)
+  - 数据支持：[AKShare](https://github.com/akfamily/akshare) 提供全量历史数据接口[1,2,4](@ref)
+
 
 ## 新增功能
    股票历史行情功能
@@ -33,3 +35,10 @@ Ruoyi-Stock-FastAPI 是基于 RuoYi-Vue-FastAPI v1.6.0 扩展的股票行情管�
     </tr>
 
 </table>
+
+## 数据初始化指南
+执行增量更新脚本（建议每日收盘后运行,）：
+python ruoyi-fastapi-backend/module_task/daily_stock.py
+
+执行初始化脚本获取全量历史数据(先运行增量更新脚本获取清单)：
+python ruoyi-fastapi-backend/module_task/init_hist_stock.py
