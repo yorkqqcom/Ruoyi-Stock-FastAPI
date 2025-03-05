@@ -711,3 +711,51 @@ create table gen_table_column (
   update_time       datetime                                   comment '更新时间',
   primary key (column_id)
 ) engine=innodb auto_increment=1 comment = '代码生成业务表字段';
+
+-- ----------------------------
+-- 20、证券基础表
+-- ----------------------------
+drop table if exists stock_basic;
+CREATE TABLE `stock_basic` (
+  `symbol` varchar(20) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `change_pct` double DEFAULT NULL,
+  `change_amt` double DEFAULT NULL,
+  `volume` double DEFAULT NULL,
+  `turnover` double DEFAULT NULL,
+  `amplitude` double DEFAULT NULL,
+  `high` double DEFAULT NULL,
+  `low` double DEFAULT NULL,
+  `open` double DEFAULT NULL,
+  `pre_close` double DEFAULT NULL,
+  `volume_ratio` double DEFAULT NULL,
+  `turnover_rate` double DEFAULT NULL,
+  `pe_ratio` double DEFAULT NULL,
+  `pb_ratio` double DEFAULT NULL,
+  `total_market_cap` double DEFAULT NULL,
+  `circ_market_cap` double DEFAULT NULL,
+  PRIMARY KEY (`symbol`)
+) ENGINE=InnoDB DEFAULT comment = '证券基础表';
+
+-- ----------------------------
+-- 21、证券历史表
+-- ----------------------------
+drop table if exists stock_hist;
+CREATE TABLE `stock_hist` (
+  `date` datetime NOT NULL,
+  `symbol` varchar(20) NOT NULL,
+  `open` double DEFAULT NULL,
+  `close` double DEFAULT NULL,
+  `high` double DEFAULT NULL,
+  `low` double DEFAULT NULL,
+  `volume` bigint(20) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `amplitude` double DEFAULT NULL,
+  `change_pct` double DEFAULT NULL,
+  `change_amt` double DEFAULT NULL,
+  `turnover_rate` double DEFAULT NULL,
+  `adjust_type` varchar(255) NOT NULL,
+  `update_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`symbol`,`date`,`adjust_type`)
+) ENGINE=InnoDB DEFAULT comment = '证券基础表';

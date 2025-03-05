@@ -1,4 +1,5 @@
-from sqlalchemy.ext.asyncio import create_async_engine
+# dateabase.py
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.ext.asyncio import async_sessionmaker
 from sqlalchemy.ext.asyncio import AsyncAttrs
 from sqlalchemy.orm import DeclarativeBase
@@ -23,7 +24,15 @@ async_engine = create_async_engine(
     pool_recycle=DataBaseConfig.db_pool_recycle,
     pool_timeout=DataBaseConfig.db_pool_timeout,
 )
-AsyncSessionLocal = async_sessionmaker(autocommit=False, autoflush=False, bind=async_engine)
+# ✅ 正确创建 async_sessionmaker
+AsyncSessionLocal = async_sessionmaker(
+    bind=async_engine,
+    class_=AsyncSession,
+    autocommit=False,
+    expire_on_commit=False
+)
+
+
 
 
 class Base(AsyncAttrs, DeclarativeBase):
