@@ -37,8 +37,8 @@ Ruoyi-Stock-FastAPI 是基于 RuoYi-Vue-FastAPI v1.6.0 扩展的股票行情管�
 </table>
 
 ## 数据初始化指南
-执行增量更新脚本（建议每日收盘后运行,）：
+执行增量更新脚本（建议每日收盘后运行,）：</br>
 python ruoyi-fastapi-backend/module_task/daily_stock.py
 
-执行初始化脚本获取全量历史数据(先运行增量更新脚本获取清单)：
+执行初始化脚本获取全量历史数据(先运行增量更新脚本获取清单)：</br>
 python ruoyi-fastapi-backend/module_task/init_hist_stock.py
