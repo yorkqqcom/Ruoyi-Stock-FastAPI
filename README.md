@@ -29,7 +29,7 @@ Ruoyi-Stock-FastAPI 是基于 RuoYi-Vue-FastAPI v1.6.0 扩展的股票行情管�
 ## 演示图
 <table>
     <tr>
-        <td><img src="https://github.com/yorkqqcom/Ruoyi-Stock-FastAPI/blob/master/demo-pictures/stock.png"/></td>
+        <td><img src="https://github.com/yorkqqcom/Ruoyi-Stock-FastAPI/tree/master/demo-pictures/stock.png"/></td>
     </tr>
 
 </table>
