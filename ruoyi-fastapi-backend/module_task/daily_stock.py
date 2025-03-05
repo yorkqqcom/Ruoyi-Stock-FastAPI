@@ -108,17 +108,6 @@ class StockDataPipeline:
             # 新增：将今日数据写入stock_hist表
             self._save_daily_hist(stock_df)
 
-            # 概念资金流数据
-            concept_df = self._fetch_concept_flow()
-            self.db.bulk_upsert("stock_concept_flow", concept_df, ["concept_name"])
-
-
-            # 新增：更新概念历史资金流表（当日数据）
-            self._save_daily_concept_hist(concept_df)
-
-            # 并行处理概念成分股
-            self._process_concept_components()
-
 
         except Exception as e:
             logger.error(f"任务执行异常: {str(e)}")
